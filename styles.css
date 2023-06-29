@@ -1,0 +1,49 @@
+#title1
+{
+    font-size: 60px;
+    position: fixed;
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+#title2
+{
+    position: sticky;
+    top: 20px;
+    font-size: 60px;
+    text-align: center;
+    visibility: hidden;
+}
+h2
+{
+    text-align: bottom;
+}
+body
+{
+    background-image: url("image.jpeg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.coaster
+{
+    position: relative;
+    width: 100%;
+    opacity: 100%;
+    margin-bottom: 75px;
+}
+
+.logo
+{
+    width: 50px;
+    height: 50px;
+}
+
+.textcenter
+{
+    margin-top: 1500px;
+    text-align: center;
+}
