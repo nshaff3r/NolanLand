@@ -1,3 +1,3 @@
 # NolanLand
 
-Under construction. 
+Personal website project. Under construction.
