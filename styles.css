@@ -36,19 +36,20 @@ body
     margin-bottom: 75px;
 }
 
-.logo
-{
-    width: 10%;
-    height: 10%;
-}
-
 .textcenter
 {
     margin-top: 1500px;
     text-align: center;
 }
-/* 
-.navbar
+
+#logo
 {
-    width: 50%;
-} */
+    position: absolute;
+    width: 80px;
+    padding: 10px;
+}
+
+#navigation
+{
+    padding: 20px;
+}
