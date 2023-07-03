@@ -3,7 +3,7 @@
     font-size: 60px;
     position: fixed;
     text-align: center;
-    top: 20%;
+    top: 250px;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -28,7 +28,7 @@ body
     background-size: cover;
 }
 
-.coaster
+#coaster
 {
     position: relative;
     width: 100%;
@@ -45,7 +45,7 @@ body
 #logo
 {
     position: absolute;
-    width: 80px;
+    width: 90px;
     padding: 10px;
 }
 
@@ -53,3 +53,14 @@ body
 {
     padding: 20px;
 }
+
+.menubar
+{
+    position: relative;
+    flex-grow: 1;
+    top: 30px;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }

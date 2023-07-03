@@ -24,21 +24,37 @@
             }
           });
           
-          window.addEventListener("resize", function(){
-            if (window.innerWidth <= 775)
+          $(window).resize(screen_size);
+
+          function screen_size()
+          {
+            if (window.innerWidth <= 775 || screen.width <= 755)
             {
                 console.log(window.innerWidth);
                 $("#navigation").css("visibility", "hidden");
+                $("#coaster").css("top", "200px");
             }
             else
             {
                 $("#navigation").css("visibility", "visible");
+                $("#coaster").css("top", "0px");
             }
+          }
+
+          document.addEventListener("DOMContentLoaded", function()
+          {
+            screen_size();
           });
+
         </script>
     </head>
     <body>
         <a href="#"><img src="media/logoplaceholder.png" id="logo"></a>
+        <div id="asdf">
+            <div class="menubar bar1"></div>
+            <div class="menubar bar2"></div>
+            <div class="menubar bar3"></div>
+        </div>
         <div class="container" id="navigation-row">
             <nav class="navbar navbar-expand" id="navigation">
                 <div class="navbar-nav mx-auto">
@@ -52,7 +68,7 @@
         </div>
         <div>
             <h1 id="title1">Welcome to NolanLand!</h1>
-            <img src="media/coaster.png" alt="Roller Coaster" class="coaster">
+            <img src="media/coaster.png" alt="Roller Coaster" id="coaster">
         </div>
         <h1 id="title2">Welcome to NolanLand!</h1>
         <div class="textcenter">
