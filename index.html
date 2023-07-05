@@ -12,7 +12,7 @@
           $(window).scroll(function(){
             var height = $("#title2").position().top;
             var scrolling = $(this).scrollTop();
-            if (height - document.getElementById("title1").offsetTop + 34 <= scrolling)
+            if (height - document.getElementById("title1").offsetTop + 84 <= scrolling)
             {
               $("#title1").css("visibility", "hidden");
               $("#title2").css("visibility", "visible");
@@ -28,32 +28,52 @@
 
           function screen_size()
           {
-            if (window.innerWidth <= 775 || screen.width <= 755)
+            if (window.innerWidth <= 1000 || screen.width <= 1000)
             {
                 console.log(window.innerWidth);
                 $("#navigation").css("visibility", "hidden");
-                $("#coaster").css("top", "200px");
+                $("#coaster").css("top", "80px");
+                $("#sidebar").css("width", "100%");
+                $(".menutext").css("font-size", "400%");
             }
             else
             {
                 $("#navigation").css("visibility", "visible");
                 $("#coaster").css("top", "0px");
+                $("#sidebar").css("width", "25vw");
+                $(".menutext").css("font-size", "3.7vw");
             }
           }
 
           document.addEventListener("DOMContentLoaded", function()
           {
             screen_size();
+            var menu = document.getElementById("menubutton");
+            menu.addEventListener("click", function()
+            {
+                menu.classList.toggle("change");
+                $()
+            })
           });
 
         </script>
     </head>
     <body>
         <a href="#"><img src="media/logoplaceholder.png" id="logo"></a>
-        <div id="asdf">
-            <div class="menubar bar1"></div>
-            <div class="menubar bar2"></div>
-            <div class="menubar bar3"></div>
+    
+        <div class="collapse" id="sidebar">
+            <a class="nav-link menutext" style= "margin-top: 125px;" aria-current="page" href="#">Home</a>
+            <a class="nav-link menutext" href="#">About Me Arcade</a>
+            <a class="nav-link menutext" href="#">Resume Rollercoaster</a>
+            <a class="nav-link menutext" href="#">Hours</a>
+            <a class="nav-link menutext" href="#">Contact</a>
+        </div>
+    
+        <div id="menubutton" data-bs-toggle="collapse" data-bs-target="#sidebar">
+            <div id="testing"></div>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
         </div>
         <div class="container" id="navigation-row">
             <nav class="navbar navbar-expand" id="navigation">
@@ -71,8 +91,8 @@
             <img src="media/coaster.png" alt="Roller Coaster" id="coaster">
         </div>
         <h1 id="title2">Welcome to NolanLand!</h1>
-        <div class="textcenter">
-          <h3>Under Construction!</h3>
+        <div>
+          <h3 id="construction">Under Construction!</h3>
         </div>
 
     </body>

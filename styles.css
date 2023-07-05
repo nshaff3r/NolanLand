@@ -1,22 +1,3 @@
-#title1
-{
-    font-size: 60px;
-    position: fixed;
-    text-align: center;
-    top: 250px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-}
-
-#title2
-{
-    position: sticky;
-    top: 20px;
-    font-size: 60px;
-    text-align: center;
-    visibility: hidden;
-}
 h2
 {
     text-align: bottom;
@@ -26,20 +7,6 @@ body
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
     background-size: cover;
-}
-
-#coaster
-{
-    position: relative;
-    width: 100%;
-    opacity: 100%;
-    margin-bottom: 75px;
-}
-
-.textcenter
-{
-    margin-top: 1500px;
-    text-align: center;
 }
 
 #logo
@@ -54,13 +21,89 @@ body
     padding: 20px;
 }
 
-.menubar
+#coaster
 {
     position: relative;
-    flex-grow: 1;
-    top: 30px;
+    width: 100%;
+    opacity: 100%;
+    margin-bottom: 75px;
+}
+
+#construction
+{
+    margin-top: 2000px;
+    text-align: center;
+}
+
+#title1
+{
+    font-size: 60px;
+    position: fixed;
+    text-align: center;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+#title2
+{
+    /* position: sticky; */
+    padding: 50px;
+    font-size: 60px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#menubutton
+{
+    position: fixed;
+    z-index: 2;
+    right: 0px;
+    padding: 20px;
+    display: inline-block;
+}
+
+#sidebar
+{
+    position: fixed;
+    z-index: 1;     
+    width: 25vw;
+    height: 100%;
+    right: 0;
+    background-color: #0c146c; 
+}
+
+  .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: black;
+    background-color: #000;
     margin: 6px 0;
+    transition: 0.4s;
   }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    background-color: white;
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {opacity: 0;}
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    background-color: white;
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+  .menutext {
+    font-size: 3.7vw;
+    color: #fff;
+    margin-left: 3vw;
+    /* margin-top: 5px; */
+  }
+
+.nav-link:hover {
+    color: lightcoral;
+ }  
