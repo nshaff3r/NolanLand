@@ -7,6 +7,7 @@ body
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
     background-size: cover;
+    overflow-y: visible;
 }
 
 #logo
@@ -72,6 +73,7 @@ body
     height: 100%;
     right: 0;
     background-color: #0c146c; 
+    transition: 100ms;
 }
 
   .bar1, .bar2, .bar3 {
@@ -100,8 +102,8 @@ body
   .menutext {
     font-size: 3.7vw;
     color: #fff;
-    margin-left: 3vw;
-    /* margin-top: 5px; */
+    margin-left: 2.3vw;
+    margin-top: 1vw;
   }
 
 .nav-link:hover {

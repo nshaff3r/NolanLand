@@ -24,6 +24,8 @@ $(window).scroll(function(){
         $("#coaster").css("top", "80px");
         $("#sidebar").css("width", "100%");
         $(".menutext").css("font-size", "400%");
+        $(".menutext").css("margin-top", "3vw");
+        $("#home").css("margin-top", "150px");
     }
     else
     {
@@ -31,6 +33,8 @@ $(window).scroll(function(){
         $("#coaster").css("top", "0px");
         $("#sidebar").css("width", "25vw");
         $(".menutext").css("font-size", "3.7vw");
+        $(".menutext").css("margin-top", "1vw");
+        $("#home").css("margin-top", "100px");
     }
   }
 
@@ -41,6 +45,13 @@ $(window).scroll(function(){
     menu.addEventListener("click", function()
     {
         menu.classList.toggle("change");
-        $()
+        if (window.getComputedStyle(document.body).overflowY == "visible" )
+        {
+            $("body").css("overflow-y", "hidden");
+        }
+        else
+        {
+            $("body").css("overflow-y", "visible");
+        }
     })
   });
