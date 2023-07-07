@@ -85,21 +85,20 @@ body
     margin-left: auto;
     margin-right: auto;
     margin-top: 10vh;
-    max-width: 40vw;
     width: 100px;
-}
+}   
 
 
 #scrollbox
 {
-    position: absolute;
-    left: 20%;
-    top: 22.5%;
-    width: 60%;
-    height: 11%;
+    position: fixed;
+    left: 34.5%;
+    top: 20vw;
+    width: 30vw;
+    height: 16vw;
     background-color: pink;
-    visibility: hidden;
-    overflow: scroll;
+    z-index: 2;
+    /* visibility: hidden; */
 }
 
 .bar1, .bar2, .bar3
