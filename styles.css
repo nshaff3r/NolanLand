@@ -6,7 +6,7 @@ body
 {
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
     overflow-y: visible;
 }
 
@@ -27,7 +27,7 @@ body
     position: relative;
     width: 100%;
     opacity: 100%;
-    margin-bottom: 75px;
+    margin-bottom: 25px;
 }
 
 #construction
@@ -76,36 +76,64 @@ body
     transition: 100ms;
 }
 
-  .bar1, .bar2, .bar3 {
+#arcade
+{
+    position: sticky;
+    left: 0px;
+    top: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    max-width: 40vw;
+    width: 100px;
+}
+
+
+#scrollbox
+{
+    position: absolute;
+    left: 20%;
+    top: 22.5%;
+    width: 60%;
+    height: 11%;
+    background-color: pink;
+    visibility: hidden;
+    overflow: scroll;
+}
+
+.bar1, .bar2, .bar3
+{
     width: 35px;
     height: 5px;
     background-color: #000;
     margin: 6px 0;
     transition: 0.4s;
-  }
-  
-  /* Rotate first bar */
-  .change .bar1 {
+}
+
+.change .bar1
+{
     background-color: white;
     transform: translate(0, 11px) rotate(-45deg);
-  }
-  
-  /* Fade out the second bar */
-  .change .bar2 {opacity: 0;}
-  
-  /* Rotate last bar */
-  .change .bar3 {
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3
+{
     background-color: white;
     transform: translate(0, -11px) rotate(45deg);
-  }
+}
 
-  .menutext {
+.menutext
+{
     font-size: 3.7vw;
     color: #fff;
     margin-left: 2.3vw;
     margin-top: 1vw;
-  }
+}
 
-.nav-link:hover {
-    color: lightcoral;
- }  
+.nav-link:hover
+{
+color: lightcoral;
+}  
