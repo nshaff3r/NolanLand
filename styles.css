@@ -6,7 +6,7 @@ body
 {
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
-    background-size: contain;
+    background-size: cover;
     overflow-y: visible;
 }
 
