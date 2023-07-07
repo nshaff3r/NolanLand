@@ -6,7 +6,7 @@ body
 {
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
     overflow-y: visible;
 }
 
@@ -24,6 +24,7 @@ body
 
 #coaster
 {
+    image-orientation: from-image;
     width: 100%;
     opacity: 100%;
     margin-bottom: 25px;
