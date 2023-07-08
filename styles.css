@@ -92,7 +92,7 @@ body
 {
     position: fixed;
     left: 34.5%;
-    top: 20vw;
+    top: 0;
     width: 30vw;
     height: 16vw;
     background-color: pink;

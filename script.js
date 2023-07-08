@@ -72,7 +72,7 @@ $(window).scroll(function(){
     else
     {
         $("#arcade").css("max-width", "40vw");
-        $("#scrollbox").css("top", "20vw");
+        $("#scrollbox").css("top", "0");
         $("#navigation").css("visibility", "visible");
         $("#coaster").css("top", "0px");
         $("#sidebar").css("width", "25vw");
