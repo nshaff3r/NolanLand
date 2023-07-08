@@ -24,6 +24,7 @@ body
 
 #coaster
 {
+    position: relative;
     width: 100%;
     opacity: 100%;
     margin-bottom: 25px;
