@@ -1,10 +1,11 @@
 $(window).scroll(function(){
-    screen_size()
+    screen_size();
+    var arcade = document.getElementById("arcade");
+    apply_sticky_class(arcade);
     var height = $("#title2").position().top;
     var scrolling = $(this).scrollTop();
     if (height - document.getElementById("title1").offsetTop + 84 <= scrolling)
     {
-        var arcade = document.getElementById("arcade");
         $("#title1").css("visibility", "hidden");
         $("#title2").css("visibility", "visible");
         var arcadeWidth = scrolling - (height - document.getElementById("title1").offsetTop) + 5;
@@ -24,15 +25,20 @@ $(window).scroll(function(){
     function apply_sticky_class(el) {
         var currentOffset = el.getBoundingClientRect().top;
         var stickyOffset = parseInt(getComputedStyle(el).top.replace('px', ''));
-        var isStuck = currentOffset <= stickyOffset;
-        el.classList.toggle('js-is-sticky', isStuck);
+        if (currentOffset <= stickyOffset)
+        {
+            $("#scrollbox").css("visibility", "visible");
+        }
+        else
+        {
+            $("#scrollbox").css("visibility", "hidden");
+        }
     }
 
     function screen_size()
     {
         var arcade = document.getElementById("arcade");
-        document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight}`;
-        apply_sticky_class(arcade);
+        // document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight}`;
         if (window.innerWidth <= 1050 || screen.width <= 1050)
         {
             $("#navigation").css("visibility", "hidden");
