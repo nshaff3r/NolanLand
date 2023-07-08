@@ -31,7 +31,7 @@ $(window).scroll(function(){
     function screen_size()
     {
         var arcade = document.getElementById("arcade");
-        document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight} | ${screen.orientation}`;
+        document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight}`;
         apply_sticky_class(arcade);
         if (window.innerWidth <= 1050 || screen.width <= 1050)
         {
@@ -43,7 +43,7 @@ $(window).scroll(function(){
             $("#home").css("margin-top", "150px");
             if (window.innerWidth <= 686 || screen.width <= 686)
             {
-                if (window.innerWidth <= 415)
+                if (screen.width <= 415 && window.innerWidth < window.innerHeight)
                 {
                     $("#arcade").css("max-width", "65vw");
                     $("#scrollbox").css("width", "46vw");
