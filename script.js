@@ -31,6 +31,7 @@ $(window).scroll(function(){
 
   function screen_size()
   {
+    alert("testing!");
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         // console.log(window.innerWidth);
