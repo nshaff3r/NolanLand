@@ -38,7 +38,7 @@ $(window).scroll(function(){
         $("#coaster").css("top", "80px");
         $("#sidebar").css("width", "100%");
         $(".menutext").css("font-size", "400%");
-        $(".menutext").css("margin-top", "3vw");
+         $(".menutext").css("margin-top", "3vw");
         $("#home").css("margin-top", "150px");
         var arcade = document.getElementById("arcade");
         if (window.innerWidth <= 686 || screen.width <= 686)
@@ -59,6 +59,7 @@ $(window).scroll(function(){
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
             }
+            $("#arcade").css("max-width", "40vw");
             $("#arcade").css("top", "0");
             // $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
             // $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);

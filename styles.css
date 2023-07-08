@@ -97,7 +97,7 @@ body
     height: 16vw;
     background-color: pink;
     z-index: 2;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .bar1, .bar2, .bar3
