@@ -60,9 +60,8 @@ $(window).scroll(function(){
                 $("#scrollbox").css("margin-top", "0");
             }
             $("#arcade").css("max-width", "40vw");
-            $("#arcade").css("top", "0");
-            // $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
-            // $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
+            $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
+            $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
         }
         else
         {
