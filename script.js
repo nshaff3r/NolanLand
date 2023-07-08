@@ -31,7 +31,7 @@ $(window).scroll(function(){
 
   function screen_size()
   {
-    document.getElementById("title1").innerHTML = `${window.innerWidth}, ${window.innerHeight}`;
+    document.getElementById("title1").innerHTML = `${window.innerHeight}, ${window.innerHeight}`;
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
@@ -49,7 +49,7 @@ $(window).scroll(function(){
                 $("#scrollbox").css("width", "46vw");
                 $("#scrollbox").css("height", "25vw");
                 $("#scrollbox").css("left", "27%");
-                // $("#scrollbox").css("margin-top", "12vw");
+                $("#scrollbox").css("margin-top", "12vw");
             }
             else
             {
@@ -59,20 +59,20 @@ $(window).scroll(function(){
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
             }
-            $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
+            // $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
             // $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
         }
         else
         {
             $("#arcade").css("max-width", "40vw");
-            $("#arcade").css("top", "0");
-            $("#scrollbox").css("top", "0");
+            $("#arcade").css("top", "0%");
+            $("#scrollbox").css("top", "20vw");
         }
     }
     else
     {
         $("#arcade").css("max-width", "40vw");
-        $("#scrollbox").css("top", "0");
+        $("#scrollbox").css("top", "20vw");
         $("#navigation").css("visibility", "visible");
         $("#coaster").css("top", "0px");
         $("#sidebar").css("width", "25vw");
