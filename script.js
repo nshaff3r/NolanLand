@@ -59,6 +59,7 @@ $(window).scroll(function(){
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
             }
+            $("#arcade").css("top", "0");
             // $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
             // $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
         }
