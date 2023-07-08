@@ -49,7 +49,7 @@ $(window).scroll(function(){
                 $("#scrollbox").css("width", "46vw");
                 $("#scrollbox").css("height", "25vw");
                 $("#scrollbox").css("left", "27%");
-                $("#scrollbox").css("margin-top", "12vw");
+                // $("#scrollbox").css("margin-top", "12vw");
             }
             else
             {
