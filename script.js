@@ -32,7 +32,7 @@ $(window).scroll(function(){
   function screen_size()
   {
     document.getElementById("title1").innerHTML = `${window.innerWidth}, ${window.innerHeight}`;
-    if (window.innerWidth <= 1050 || screen.width <= 1050)
+    if (window.innerWidth <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
         $("#coaster").css("top", "80px");
@@ -41,9 +41,9 @@ $(window).scroll(function(){
          $(".menutext").css("margin-top", "3vw");
         $("#home").css("margin-top", "150px");
         var arcade = document.getElementById("arcade");
-        if (window.innerWidth <= 686 || screen.width <= 686)
+        if (window.innerWidth <= 686)
         {
-            if (window.innerWidth <= 415 || screen.width <= 415)
+            if (window.innerWidth <= 415)
             {
                 $("#arcade").css("max-width", "65vw");
                 $("#scrollbox").css("width", "46vw");
