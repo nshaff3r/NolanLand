@@ -31,9 +31,9 @@ $(window).scroll(function(){
     function screen_size()
     {
         var arcade = document.getElementById("arcade");
-        document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight}`;
+        document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight} | ${screen.orientation}`;
         apply_sticky_class(arcade);
-        if (window.innerWidth <= 1050)
+        if (window.innerWidth <= 1050 || screen.width <= 1050)
         {
             $("#navigation").css("visibility", "hidden");
             $("#coaster").css("top", "100px");
@@ -41,8 +41,7 @@ $(window).scroll(function(){
             $(".menutext").css("font-size", "400%");
             $(".menutext").css("margin-top", "3vw");
             $("#home").css("margin-top", "150px");
-            console.log(screen.width);
-            if (window.innerWidth <= 686)
+            if (window.innerWidth <= 686 || screen.width <= 686)
             {
                 if (window.innerWidth <= 415)
                 {
