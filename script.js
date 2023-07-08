@@ -31,7 +31,7 @@ $(window).scroll(function(){
 
   function screen_size()
   {
-    document.getElementById("title1").innerHTML = `${window.innerHeight}, ${window.innerHeight}`;
+    document.getElementById("title1").innerHTML = `${window.innerWidth}, ${window.innerHeight}`;
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
