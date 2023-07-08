@@ -65,7 +65,7 @@ $(window).scroll(function(){
         else
         {
             $("#arcade").css("max-width", "40vw");
-            $("#arcade").css("top", "0%");
+            $("#arcade").css("top", "0");
             $("#scrollbox").css("top", "20vw");
         }
     }
