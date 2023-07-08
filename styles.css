@@ -79,7 +79,7 @@ body
 {
     position: sticky;
     left: 0px;
-    top: 10px;
+    top: -1px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -97,7 +97,7 @@ body
     height: 16vw;
     background-color: pink;
     z-index: 2;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .bar1, .bar2, .bar3
@@ -135,3 +135,12 @@ body
 {
 color: lightcoral;
 }  
+
+.js-is-sticky {
+    background-color: pink;
+  }
+
+.sticky
+{
+    position: sticky;
+}
