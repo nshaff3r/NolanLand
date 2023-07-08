@@ -31,10 +31,8 @@ $(window).scroll(function(){
 
   function screen_size()
   {
-    alert("testing!");
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
-        // console.log(window.innerWidth);
         $("#navigation").css("visibility", "hidden");
         $("#coaster").css("top", "80px");
         $("#sidebar").css("width", "100%");
@@ -44,7 +42,6 @@ $(window).scroll(function(){
         var arcade = document.getElementById("arcade");
         if (window.innerWidth <= 686 || screen.width <= 686)
         {
-            // alert("TEST!");
             if (window.innerWidth <= 415 || screen.width <= 415)
             {
                 $("#arcade").css("max-width", "65vw");
