@@ -15,30 +15,45 @@ $(window).scroll(function(){
     {
         $("#title1").css("visibility", "visible");
         $("#title2").css("visibility", "hidden");
-    }   
+    }
+    if (first == false)
+    {
+        console.log(sticky);
+        if (scrolling >= sticky)
+        {
+            scrollbox = document.getElementById("scrollbox");
+            document.getElementById("arcade").src = "media/arcade.png";
+            $("#scrollbox").css("visibility", "visible");
+        }
+        else
+        {
+            $("#scrollbox").css("visibility", "hidden");
+            document.getElementById("arcade").src = "media/arcade1.png";
+        }
+    }
     });
 
   
     $(window).resize(screen_size);
 
     // Adapted from https://stackoverflow.com/questions/44744498/use-of-and-in-javascript
+
+    var first = true;
+    var sticky = 0;
     function apply_sticky_class(el) {
         var currentOffset = el.getBoundingClientRect().top;
         var stickyOffset = parseInt(getComputedStyle(el).top.replace('px', ''));
-        if (currentOffset <= stickyOffset)
+        if (currentOffset <= stickyOffset && first == true)
         {
-            $("#scrollbox").css("visibility", "visible");
-        }
-        else
-        {
-            $("#scrollbox").css("visibility", "hidden");
+            first = false;
+            sticky = $(this).scrollTop();
+            sticky += 40;
         }
     }
 
     function screen_size()
     {
         var arcade = document.getElementById("arcade");
-        // document.getElementById("title1").innerHTML = `${screen.width} ${screen.height} | ${window.innerWidth} ${window.innerHeight}`;
         if (window.innerWidth <= 1050 || screen.width <= 1050)
         {
             $("#navigation").css("visibility", "hidden");

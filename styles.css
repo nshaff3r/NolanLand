@@ -1,3 +1,8 @@
+@font-face {
+    font-family: arcade;
+    src: url(arcade.ttf);
+  }
+
 h2
 {
     text-align: bottom;
@@ -32,7 +37,7 @@ body
 
 #construction
 {
-    margin-top: 2000px;
+    margin-top: 5000px;
     text-align: center;
 }
 
@@ -96,9 +101,9 @@ body
     top: 0;
     width: 30vw;
     height: 16vw;
-    background-color: pink;
     z-index: 2;
     visibility: hidden;
+    overflow: hidden;
 }
 
 .bar1, .bar2, .bar3
@@ -144,4 +149,12 @@ color: lightcoral;
 .sticky
 {
     position: sticky;
+}
+
+.aboutme
+{
+    font-size: 1.5vw;
+    text-align: center;
+    color: pink;
+    font-family: arcade;
 }
