@@ -47,7 +47,7 @@ a
 
 #construction
 {
-    margin-top: 5000px;
+    margin-top: 10000px;
     text-align: center;
 }
 
@@ -167,6 +167,6 @@ color: lightcoral;
     text-align: center;
     color: pink;
     font-family: arcade;
-    visibility: hidden;
     position: absolute;
+    opacity: 0;
 }

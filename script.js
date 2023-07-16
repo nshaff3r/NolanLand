@@ -3,13 +3,14 @@ $(window).scroll(function()
     screen_size();
     console.log(`${sticky}, ${$(this).scrollTop() + 40}, ${first}`);
     var arcade = document.getElementById("arcade");
-    var height = $("#title2").position().top;
+    var titleHeight = $("#title2").position().top;
+    var width = window.innerWidth;
     var scrolling = $(this).scrollTop();
-    if (height - document.getElementById("title1").offsetTop + 84 <= scrolling)
+    if (titleHeight - document.getElementById("title1").offsetTop + 84 <= scrolling)
     {
         $("#title1").css("visibility", "hidden");
         $("#title2").css("visibility", "visible");
-        var arcadeWidth = scrolling - (height - document.getElementById("title1").offsetTop) + 5;
+        var arcadeWidth = scrolling - (titleHeight - document.getElementById("title1").offsetTop) + 5;
         var k = 1.1 // speed of zoom
         if (k * arcadeWidth > 100)
         {
@@ -21,72 +22,51 @@ $(window).scroll(function()
         $("#title1").css("visibility", "visible");
         $("#title2").css("visibility", "hidden");
     }
-    if (first == false)
+    if (scrolling >= width)
     {
-        if (scrolling >= sticky + stickyCorrector)
-        {
-            console.log("ASFASDFASDFSDF");
-            $("#scrollbox").css("display", "block");
-            document.getElementById("arcade").src = "media/arcade.png";
-            $("#text1").css("visibility", "visible");
-            $("#text1").css("opacity", `${100 - (0.07 * (scrolling - (sticky + stickyCorrector + 400)))}%`);
-            if ($("#text1").css("opacity") == 0)
+        $("#scrollbox").css("display", "block"); // Show about me text
+        document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
+        $("#text1").css("opacity", `${100 - (0.07 * (scrolling - width))}%`); // Reduce opacity
+        if (scrolling >= 2 * width)
+        {   
+            $("#text2").css("opacity", `${0.07 * (scrolling - 2 * width)}%`); // Increase second about me opacity
+            
+            if (scrolling >= 3 * width)
             {   
-                if (first2 == true)
-                {
-                    text2 = scrolling;
-                    first2 = false;
-                }
-                $("#text2").css("visibility", "visible");
-                $("#text2").css("opacity", `${0.07 * (scrolling - text2)}%`);
+                $("#text2").css("opacity", `${200 - (0.07 * (scrolling - 2 * width))}%`); // Reduce text two opacity
                 
-                if ($("#text2").css("opacity") == 1)
-                {   
-                    $("#text2").css("opacity", `${200 - (0.07 * (scrolling - text2))}%`);
-                    if ($("#text2").css("opacity") == 0)
+                if (scrolling >= 4 * width)
+                {
+                    $("#text3").css("opacity", `${0.07 * (scrolling - 4 * width)}%`); // Increase third about me opacity
+                    
+                    if (scrolling >= 5 * width)
                     {
-                        if (first3 == true)
+                        $("#text3").css("opacity", `${100 - (0.07 * (scrolling - 5 * width))}%`); // Reduce text three opacity
+                        if (scrolling >= 6 * width)
                         {
-                            text3 = scrolling;
-                            first3 = false;
+                            $("#text4").css("opacity", `${0.07 * (scrolling - 6 * width)}%`); // Increase fourth about me opacity
                         }
-                        $("#text3").css("visibility", "visible");
-                        $("#text3").css("opacity", `${0.07 * (scrolling - text3)}%`);
-                        if ($("#text3").css("opacity") == 1)
-                        {   
-                            $("#text3").css("opacity", `${200 - (0.07 * (scrolling - text3))}%`);
-                            if ($("#text3").css("opacity") == 0)
-                            {
-                                if (first4 == true)
-                                {
-                                    text4 = scrolling;
-                                    first4 = false;
-                                }
-                                $("#text4").css("visibility", "visible");
-                                $("#text4").css("opacity", `${0.07 * (scrolling - text4)}%`);
-                            }
-                            else
-                            {
-                                $("#text4").css("visibility", "hidden");
-                            }
+                        else
+                        {
+                            $("#text4").css("opacity", 0);
                         }
-                    }
-                    else
-                    {
-                        $("#text3").css("visibility", "hidden");
                     }
                 }
-            }
-            else
-            {
-                $("#text2").css("visibility", "hidden");
+                else
+                {
+                    $("#text3").css("opacity", 0);
+                }
             }
         }
         else
         {
-            document.getElementById("arcade").src = "media/arcade1.png";
-            $("#text1").css("visibility", "hidden");
+            $("#text2").css("opacity", 0);
         }
+    }
+    else
+    {
+        document.getElementById("arcade").src = "media/arcade1.png";
+        $("#text1").css("opacity", 0);
     }
 });
 
@@ -95,34 +75,6 @@ $(window).resize(function(){
     sessionStorage.removeItem("sticky");
     screen_size();
 });
-
-var first = true;
-var first2 = true;
-var first3 = true;
-var first4 = true;
-var screenSet = false;
-var sticky = 0;
-var stickyCorrector = 0;
-var text2; 
-var text3;
-var text4;
-
-// Adapted from https://stackoverflow.com/questions/44744498/use-of-and-in-javascript
-function apply_sticky_class(el) {
-    var currentOffset = el.getBoundingClientRect().top;
-    var stickyOffset = parseInt(getComputedStyle(el).top.replace('px', ''));
-    if (currentOffset <= stickyOffset && first == true)
-    {
-        first = false;
-        sticky = sessionStorage.getItem("sticky")
-        if (sticky === null)
-        {
-            sticky = $(this).scrollTop() + 40;
-            sessionStorage.setItem("sticky", sticky);
-        }
-        $("#construction").css("margin-top", sticky + 10000);
-    }
-}
 
 function screen_size()
 {
@@ -147,7 +99,6 @@ function screen_size()
                 $("#scrollbox").css("margin-top", "12vw");
                 $(".aboutme").css("font-size", "2.25vw");
                 $(".aboutme").css("margin-top", "1vw");
-                stickyCorrector = 500;
             }
             else
             {
@@ -157,7 +108,6 @@ function screen_size()
                 $("#scrollbox").css("height", "16vw");
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
-                stickyCorrector = 300;
             }
             $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
             $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
@@ -186,7 +136,6 @@ function screen_size()
 document.addEventListener("DOMContentLoaded", function()
 {
     screen_size();
-    screenSet = true;
     var menu = document.getElementById("menubutton");
     menu.addEventListener("click", function()
     {
