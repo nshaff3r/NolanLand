@@ -73,7 +73,7 @@ $(window).resize(screen_size);
 
 function screen_size()
 {
-    document.getElementById("title1").innerHTML = window.innerWidth;
+    document.getElementById("title1").innerHTML = screen.width;
     var arcade = document.getElementById("arcade");
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
