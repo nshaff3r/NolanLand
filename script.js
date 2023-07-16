@@ -4,6 +4,7 @@ $(window).scroll(function()
     var arcade = document.getElementById("arcade");
     var titleHeight = $("#title2").position().top;
     var width = window.innerWidth;
+    document.getElementById("title1").innerHTML = width;
     var scrolling = $(this).scrollTop();
     if (titleHeight - document.getElementById("title1").offsetTop + 84 <= scrolling)
     {
@@ -70,11 +71,9 @@ $(window).scroll(function()
 
 
 $(window).resize(screen_size);
-window.addEventListener("orientationchange", screen_size);
 
 function screen_size()
 {
-    document.getElementById("title1").innerHTML = screen.width;
     var arcade = document.getElementById("arcade");
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
