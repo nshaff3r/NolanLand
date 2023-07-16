@@ -87,6 +87,7 @@ function screen_size()
         {
             if (screen.width <= 415 && window.innerWidth < window.innerHeight)
             {
+                alert("ASDFASDF");
                 $("#arcade").css("max-width", "65vw");
                 $("#scrollbox").css("width", "46vw");
                 $("#scrollbox").css("height", "25vw");
