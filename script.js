@@ -1,7 +1,8 @@
 $(window).scroll(function()
 {
+    screen_size();
+    console.log(`${sticky}, ${$(this).scrollTop() + 40}, ${first}`);
     var arcade = document.getElementById("arcade");
-    apply_sticky_class(arcade);
     var height = $("#title2").position().top;
     var scrolling = $(this).scrollTop();
     if (height - document.getElementById("title1").offsetTop + 84 <= scrolling)
@@ -24,6 +25,7 @@ $(window).scroll(function()
     {
         if (scrolling >= sticky + stickyCorrector)
         {
+            console.log("ASFASDFASDFSDF");
             $("#scrollbox").css("display", "block");
             document.getElementById("arcade").src = "media/arcade.png";
             $("#text1").css("visibility", "visible");
@@ -89,7 +91,10 @@ $(window).scroll(function()
 });
 
 
-$(window).resize(screen_size);
+$(window).resize(function(){
+    sessionStorage.removeItem("sticky");
+    screen_size();
+});
 
 var first = true;
 var first2 = true;
@@ -112,22 +117,17 @@ function apply_sticky_class(el) {
         sticky = sessionStorage.getItem("sticky")
         if (sticky === null)
         {
-            alert("TESTING!")
             sticky = $(this).scrollTop() + 40;
             sessionStorage.setItem("sticky", sticky);
         }
-        console.log(sticky);
+        $("#construction").css("margin-top", sticky + 10000);
     }
 }
 
 function screen_size()
 {
-    if (screenSet == true)
-    {
-        sessionStorage.removeItem("sticky");
-        apply_sticky_class(document.getElementById("arcade"));
-    }
     var arcade = document.getElementById("arcade");
+    apply_sticky_class(arcade);
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
