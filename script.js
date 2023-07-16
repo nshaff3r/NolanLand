@@ -70,6 +70,7 @@ $(window).scroll(function()
 
 
 $(window).resize(screen_size);
+window.addEventListener("orientationchange", screen_size);
 
 function screen_size()
 {
@@ -99,7 +100,6 @@ function screen_size()
             }
             else
             {
-                alert("ASDFASDFSDF");
                 $("#arcade").css("max-width", "40vw");
                 $("#arcade").css("backround-color", "white");
                 $("#scrollbox").css("width", "30vw");
