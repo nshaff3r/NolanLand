@@ -1,6 +1,5 @@
 $(window).scroll(function()
 {
-    screen_size();
     var arcade = document.getElementById("arcade");
     apply_sticky_class(arcade);
     var height = $("#title2").position().top;
@@ -10,7 +9,11 @@ $(window).scroll(function()
         $("#title1").css("visibility", "hidden");
         $("#title2").css("visibility", "visible");
         var arcadeWidth = scrolling - (height - document.getElementById("title1").offsetTop) + 5;
-        arcade.style.width = 1.1 * arcadeWidth + "px";
+        var k = 1.1 // speed of zoom
+        if (k * arcadeWidth > 100)
+        {
+            arcade.style.width = k * arcadeWidth + "px";
+        }
     }
     else
     {
@@ -21,6 +24,7 @@ $(window).scroll(function()
     {
         if (scrolling >= sticky + stickyCorrector)
         {
+            $("#scrollbox").css("display", "block");
             document.getElementById("arcade").src = "media/arcade.png";
             $("#text1").css("visibility", "visible");
             $("#text1").css("opacity", `${100 - (0.07 * (scrolling - (sticky + stickyCorrector + 400)))}%`);
@@ -91,6 +95,7 @@ var first = true;
 var first2 = true;
 var first3 = true;
 var first4 = true;
+var screenSet = false;
 var sticky = 0;
 var stickyCorrector = 0;
 var text2; 
@@ -104,14 +109,24 @@ function apply_sticky_class(el) {
     if (currentOffset <= stickyOffset && first == true)
     {
         first = false;
-        sticky = $(this).scrollTop();
-        sticky += 40;
-        $("#construction").css("margin-top", `${10000 + sticky}px`);
+        sticky = sessionStorage.getItem("sticky")
+        if (sticky === null)
+        {
+            alert("TESTING!")
+            sticky = $(this).scrollTop() + 40;
+            sessionStorage.setItem("sticky", sticky);
+        }
+        console.log(sticky);
     }
 }
 
 function screen_size()
 {
+    if (screenSet == true)
+    {
+        sessionStorage.removeItem("sticky");
+        apply_sticky_class(document.getElementById("arcade"));
+    }
     var arcade = document.getElementById("arcade");
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
@@ -171,6 +186,7 @@ function screen_size()
 document.addEventListener("DOMContentLoaded", function()
 {
     screen_size();
+    screenSet = true;
     var menu = document.getElementById("menubutton");
     menu.addEventListener("click", function()
     {

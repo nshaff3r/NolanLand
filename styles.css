@@ -113,6 +113,7 @@ a
     height: 16vw;
     z-index: 2;
     overflow: hidden;
+    display: none;
 }
 
 .bar1, .bar2, .bar3
