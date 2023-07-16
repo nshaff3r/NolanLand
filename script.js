@@ -87,7 +87,6 @@ function screen_size()
         {
             if (screen.width <= 415 && window.innerWidth < window.innerHeight)
             {
-                alert("ASDFASDF");
                 $("#arcade").css("max-width", "65vw");
                 $("#scrollbox").css("width", "46vw");
                 $("#scrollbox").css("height", "25vw");
@@ -95,6 +94,8 @@ function screen_size()
                 $("#scrollbox").css("margin-top", "12vw");
                 $(".aboutme").css("font-size", "2.25vw");
                 $(".aboutme").css("margin-top", "1vw");
+                $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
+                $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
             }
             else
             {
@@ -105,8 +106,6 @@ function screen_size()
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
             }
-            $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
-            $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
         }
         else
         {
