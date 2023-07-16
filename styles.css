@@ -15,6 +15,16 @@ body
     overflow-y: visible;
 }
 
+a:hover
+{
+color: lightcoral;
+}  
+
+a
+{
+    color: #F9D840;
+}
+
 #logo
 {
     position: absolute;
@@ -102,7 +112,6 @@ body
     width: 30vw;
     height: 16vw;
     z-index: 2;
-    visibility: hidden;
     overflow: hidden;
 }
 
@@ -157,4 +166,6 @@ color: lightcoral;
     text-align: center;
     color: pink;
     font-family: arcade;
+    visibility: hidden;
+    position: absolute;
 }
