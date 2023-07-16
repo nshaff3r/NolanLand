@@ -19,11 +19,11 @@ $(window).scroll(function()
     }
     if (first == false)
     {
-        if (scrolling >= sticky)
+        if (scrolling >= sticky + stickyCorrector)
         {
             document.getElementById("arcade").src = "media/arcade.png";
             $("#text1").css("visibility", "visible");
-            $("#text1").css("opacity", `${100 - (0.07 * (scrolling - (sticky + 400)))}%`);
+            $("#text1").css("opacity", `${100 - (0.07 * (scrolling - (sticky + stickyCorrector + 400)))}%`);
             if ($("#text1").css("opacity") == 0)
             {   
                 if (first2 == true)
@@ -92,6 +92,7 @@ var first2 = true;
 var first3 = true;
 var first4 = true;
 var sticky = 0;
+var stickyCorrector = 0;
 var text2; 
 var text3;
 var text4;
@@ -129,6 +130,9 @@ function screen_size()
                 $("#scrollbox").css("height", "25vw");
                 $("#scrollbox").css("left", "27%");
                 $("#scrollbox").css("margin-top", "12vw");
+                $(".aboutme").css("font-size", "2.25vw");
+                $(".aboutme").css("margin-top", "1vw");
+                stickyCorrector = 500;
             }
             else
             {
@@ -138,6 +142,7 @@ function screen_size()
                 $("#scrollbox").css("height", "16vw");
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", "0");
+                stickyCorrector = 300;
             }
             $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
             $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
