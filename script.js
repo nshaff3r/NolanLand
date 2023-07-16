@@ -104,7 +104,7 @@ function screen_size()
                 $("#scrollbox").css("width", "30vw");
                 $("#scrollbox").css("height", "16vw");
                 $("#scrollbox").css("left", "34.5%");
-                $("#scrollbox").css("margin-top", "0");
+                $("#scrollbox").css("top", "20vw");
             }
         }
         else
