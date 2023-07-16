@@ -1,7 +1,6 @@
 $(window).scroll(function()
 {
     screen_size();
-    console.log(`${sticky}, ${$(this).scrollTop() + 40}, ${first}`);
     var arcade = document.getElementById("arcade");
     var titleHeight = $("#title2").position().top;
     var width = window.innerWidth;
@@ -26,25 +25,24 @@ $(window).scroll(function()
     {
         $("#scrollbox").css("display", "block"); // Show about me text
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
-        $("#text1").css("opacity", `${100 - (0.07 * (scrolling - width))}%`); // Reduce opacity
+        $("#text1").css("opacity", `${100 - (0.1 * (scrolling - width))}%`); // Reduce opacity
         if (scrolling >= 2 * width)
         {   
-            $("#text2").css("opacity", `${0.07 * (scrolling - 2 * width)}%`); // Increase second about me opacity
+            $("#text2").css("opacity", `${0.1 * (scrolling - 2 * width)}%`); // Increase second about me opacity
             
-            if (scrolling >= 3 * width)
+            if (scrolling >= 4 * width)
             {   
-                $("#text2").css("opacity", `${200 - (0.07 * (scrolling - 2 * width))}%`); // Reduce text two opacity
-                
-                if (scrolling >= 4 * width)
+                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 4 * width))}%`); // Reduce text two opacity
+                if (scrolling >= 5 * width)
                 {
-                    $("#text3").css("opacity", `${0.07 * (scrolling - 4 * width)}%`); // Increase third about me opacity
+                    $("#text3").css("opacity", `${0.1 * (scrolling - 5 * width)}%`); // Increase third about me opacity
                     
-                    if (scrolling >= 5 * width)
+                    if (scrolling >= 6 * width)
                     {
-                        $("#text3").css("opacity", `${100 - (0.07 * (scrolling - 5 * width))}%`); // Reduce text three opacity
-                        if (scrolling >= 6 * width)
+                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 6 * width))}%`); // Reduce text three opacity
+                        if (scrolling >= 7 * width)
                         {
-                            $("#text4").css("opacity", `${0.07 * (scrolling - 6 * width)}%`); // Increase fourth about me opacity
+                            $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width)}%`); // Increase fourth about me opacity
                         }
                         else
                         {
@@ -71,15 +69,12 @@ $(window).scroll(function()
 });
 
 
-$(window).resize(function(){
-    sessionStorage.removeItem("sticky");
-    screen_size();
-});
+$(window).resize(screen_size);
 
 function screen_size()
 {
+    document.getElementById("title1").innerHTML = window.innerWidth;
     var arcade = document.getElementById("arcade");
-    apply_sticky_class(arcade);
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
