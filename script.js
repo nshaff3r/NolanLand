@@ -102,6 +102,8 @@ function screen_size()
                 $("#arcade").css("max-width", "40vw");
                 $("#arcade").css("backround-color", "white");
                 $("#arcade").css("top", "-1px");
+                $(".aboutme").css("font-size", "1.5vw");
+                $(".aboutme").css("margin-top", 0);
                 $("#scrollbox").css("width", "30vw");
                 $("#scrollbox").css("height", "16vw");  
                 $("#scrollbox").css("left", "34.5%");
