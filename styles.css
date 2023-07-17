@@ -74,6 +74,7 @@ a
     left: 50%;
     transform: translate(-50%, 0);
     position: absolute;
+    color: pink;
 }
 
 #menubutton
