@@ -47,7 +47,7 @@ a
 
 #construction
 {
-    margin-top: 10000px;
+    margin-top: 11500px;
     text-align: center;
 }
 
@@ -64,8 +64,7 @@ a
 
 #title2
 {
-    /* position: sticky; */
-    padding: 50px;
+    padding: 150px;
     font-size: 60px;
     text-align: center;
     visibility: hidden;
@@ -168,5 +167,6 @@ color: lightcoral;
     color: pink;
     font-family: arcade;
     position: absolute;
-    opacity: 0;
+    z-index: 4;
+    visibility: hidden;
 }

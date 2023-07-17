@@ -4,17 +4,19 @@ $(window).scroll(function()
     var arcade = document.getElementById("arcade");
     var titleHeight = $("#title2").position().top;
     var width = window.innerWidth;
-    document.getElementById("title1").innerHTML = width;
     var scrolling = $(this).scrollTop();
-    if (titleHeight - document.getElementById("title1").offsetTop + 84 <= scrolling)
+    if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 187)
     {
         $("#title1").css("visibility", "hidden");
         $("#title2").css("visibility", "visible");
-        var arcadeWidth = scrolling - (titleHeight - document.getElementById("title1").offsetTop) + 5;
-        var k = 1.1 // speed of zoom
-        if (k * arcadeWidth > 100)
+        if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 325)
         {
-            arcade.style.width = k * arcadeWidth + "px";
+            var arcadeWidth = scrolling - (titleHeight - document.getElementById("title1").offsetTop) - 235;
+            var k = 1.1 // speed of zoom
+            if (k * arcadeWidth > 100)
+            {
+                arcade.style.width = k * arcadeWidth + "px";
+            }
         }
     }
     else
@@ -22,50 +24,76 @@ $(window).scroll(function()
         $("#title1").css("visibility", "visible");
         $("#title2").css("visibility", "hidden");
     }
-    if (scrolling >= width)
+    var m = 300; // buffer
+    if (scrolling >= width + m)
     {
         $("#scrollbox").css("display", "block"); // Show about me text
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
-        $("#text1").css("opacity", `${100 - (0.1 * (scrolling - width))}%`); // Reduce opacity
-        if (scrolling >= 2 * width)
+        $("#text1").css("visibility", "visible")
+        $("#text1").css("opacity", `${100 - (0.1 * (scrolling - width - m))}%`); // Reduce opacity
+        if (scrolling >= 2 * width + m)
         {   
-            $("#text2").css("opacity", `${0.1 * (scrolling - 2 * width)}%`); // Increase second about me opacity
+            $("#text1").css("visibility", "hidden");
+            $("#text2").css("visibility", "visible")
+            $("#text2").css("opacity", `${0.1 * (scrolling - 2 * width - m)}%`); // Increase second about me opacity
             
-            if (scrolling >= 4 * width)
+            if (scrolling >= 4 * width + m)
             {   
-                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 4 * width))}%`); // Reduce text two opacity
-                if (scrolling >= 5 * width)
+                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 4 * width - m))}%`); // Reduce text two opacity
+                if (scrolling >= 5 * width + m)
                 {
-                    $("#text3").css("opacity", `${0.1 * (scrolling - 5 * width)}%`); // Increase third about me opacity
+                    $("#text2").css("visibility", "hidden");
+                    $("#text3").css("visibility", "visible")
+                    $("#text3").css("opacity", `${0.1 * (scrolling - 5 * width - m)}%`); // Increase third about me opacity
                     
-                    if (scrolling >= 6 * width)
+                    if (scrolling >= 6 * width + m)
                     {
-                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 6 * width))}%`); // Reduce text three opacity
-                        if (scrolling >= 7 * width)
+                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 6 * width - m))}%`); // Reduce text three opacity
+                        if (scrolling >= 7 * width + m)
                         {
-                            $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width)}%`); // Increase fourth about me opacity
+                            $("#text3").css("visibility", "hidden");
+                            $("#text4").css("visibility", "visible")
+                            $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase fourth about me opacity
+                            if (scrolling >= 8 * width + m)
+                            {   
+                                $("#text4").css("opacity", `${100 - (0.1 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
+                                $("#arcade").css("opacity", `${100 - (0.1 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
+                                if (scrolling >= 9 * width + m)
+                                {
+                                    $("#text4").css("visibility", "hidden");
+                                    $("#arcade").css("visibility", "hidden");
+                                }
+                                else
+                                {
+                                    $("#arcade").css("visibility", "visible");
+                                }
+                            }
+                            else
+                            {
+                                $("#arcade").css("opacity", 1);
+                            }
                         }
                         else
                         {
-                            $("#text4").css("opacity", 0);
+                            $("#text4").css("visibility", "hidden")
                         }
                     }
                 }
                 else
                 {
-                    $("#text3").css("opacity", 0);
+                    $("#text3").css("visibility", "hidden")
                 }
             }
         }
         else
         {
-            $("#text2").css("opacity", 0);
+            $("#text2").css("visibility", "hidden")
         }
     }
     else
     {
         document.getElementById("arcade").src = "media/arcade1.png";
-        $("#text1").css("opacity", 0);
+        $("#text1").css("visibility", "hidden")
     }
 });
 
@@ -88,11 +116,11 @@ function screen_size()
             if (screen.width <= 415 && window.innerWidth < window.innerHeight)
             {
                 $("#arcade").css("max-width", "65vw");
-                $("#scrollbox").css("width", "46vw");
-                $("#scrollbox").css("height", "25vw");
-                $("#scrollbox").css("left", "27%");
+                $("#scrollbox").css("width", "48vw");
+                $("#scrollbox").css("height", "27vw");
+                $("#scrollbox").css("left", "25%");
                 $("#scrollbox").css("margin-top", "12vw");
-                $(".aboutme").css("font-size", "2.25vw");
+                $(".aboutme").css("font-size", "2.45vw");
                 $(".aboutme").css("margin-top", "1vw");
                 $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
                 $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
