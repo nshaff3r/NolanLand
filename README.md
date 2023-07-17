@@ -10,6 +10,6 @@ To view a working version, visit [here](https://nshaff3r.github.io/NolanLand/).
 - [x] Sidebar/menu
 - [x] Navigation bar
 - [x] About Me Arcade
-- [] Resume Rollercoaster
-- [] Hours
-- [] Contact
+- [ ] Resume Rollercoaster
+- [ ] Hours
+- [ ] Contact
