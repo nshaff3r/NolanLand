@@ -3,10 +3,6 @@
     src: url(arcade.ttf);
   }
 
-h2
-{
-    text-align: bottom;
-}
 body
 {
     background-image: url("media/image.jpeg");
@@ -68,6 +64,16 @@ a
     font-size: 60px;
     text-align: center;
     visibility: hidden;
+}
+
+#subheading
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 225px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
 }
 
 #menubutton

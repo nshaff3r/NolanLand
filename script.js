@@ -24,7 +24,7 @@ $(window).scroll(function()
         $("#title1").css("visibility", "visible");
         $("#title2").css("visibility", "hidden");
     }
-    var m = 300; // buffer
+    var m = 350; // buffer
     if (scrolling >= width + m)
     {
         $("#scrollbox").css("display", "block"); // Show about me text
