@@ -12,7 +12,7 @@ $(window).scroll(function()
         if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 325)
         {
             var arcadeWidth = scrolling - (titleHeight - document.getElementById("title1").offsetTop) - 235;
-            var k = 1.1 // speed of zoom
+            var k = 1 // speed of zoom
             if (k * arcadeWidth > 100)
             {
                 arcade.style.width = k * arcadeWidth + "px";
