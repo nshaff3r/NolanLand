@@ -132,7 +132,7 @@ function screen_size()
                 document.getElementById("title2").classList.add("mobile");
                 $("#subheading").css("margin-top", "700px");
                 $("#subheading").css("left", "40%");
-                m = 350;
+                m = 1800;
             }
             else
             {
@@ -153,7 +153,7 @@ function screen_size()
                 document.getElementById("title2").classList.remove("mobile");
                 $("#subheading").css("margin-top", "150px");
                 $("#subheading").css("left", "50%");
-                m = 1800;
+                m = 350;
             }
         }
         else
