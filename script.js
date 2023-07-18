@@ -1,3 +1,5 @@
+var m = 350; // scroll buffer
+
 $(window).scroll(function()
 {
     screen_size();
@@ -24,7 +26,6 @@ $(window).scroll(function()
         $("#title1").css("visibility", "visible");
         $("#title2").css("visibility", "hidden");
     }
-    var m = 350; // buffer
     if (scrolling >= width + m)
     {
         $("#scrollbox").css("display", "block"); // Show about me text
@@ -106,7 +107,7 @@ function screen_size()
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         $("#navigation").css("visibility", "hidden");
-        $("#coaster").css("top", "100px");
+        $("#coaster").css("top", "150px");
         $("#sidebar").css("width", "100%");
         $(".menutext").css("font-size", "400%");
         $(".menutext").css("margin-top", "3vw");
@@ -124,6 +125,14 @@ function screen_size()
                 $(".aboutme").css("margin-top", "1vw");
                 $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
                 $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
+                document.getElementById("coaster").src = "media/mobileCoaster.png";
+                $("#coaster").css("transform", "translate(0, -230px)");
+                $("#title1").css("margin-top", "550px");
+                document.getElementById("title1").classList.add("mobile");
+                document.getElementById("title2").classList.add("mobile");
+                $("#subheading").css("margin-top", "700px");
+                $("#subheading").css("left", "40%");
+                m = 350;
             }
             else
             {
@@ -137,6 +146,14 @@ function screen_size()
                 $("#scrollbox").css("left", "34.5%");
                 $("#scrollbox").css("margin-top", 0);
                 $("#scrollbox").css("top", "20vw");
+                document.getElementById("coaster").src = "media/coaster.png";
+                $("#coaster").css("transform", "translate(0, 0)");
+                $("#title1").css("margin-top", "100px");
+                document.getElementById("title1").classList.remove("mobile");
+                document.getElementById("title2").classList.remove("mobile");
+                $("#subheading").css("margin-top", "150px");
+                $("#subheading").css("left", "50%");
+                m = 1800;
             }
         }
         else
