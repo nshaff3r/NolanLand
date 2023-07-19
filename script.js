@@ -130,11 +130,9 @@ function screen_size()
                 $("#scrollbox").css("width", "74vw");
                 $("#scrollbox").css("height", "40vw");
                 $("#scrollbox").css("left", "12%");
-                $("#scrollbox").css("margin-top", "73vw");
+                $("#scrollbox").css("margin-top", "49vw");
                 $(".aboutme").css("font-size", "3.7vw");
                 $(".aboutme").css("margin-top", "1vw");
-                $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
-                $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
                 document.getElementById("coaster").src = "media/mobileCoaster.png";
                 $("#coaster").css("transform", "translate(0, -230px)");
                 $("#title1").css("margin-top", "550px");
