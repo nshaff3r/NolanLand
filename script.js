@@ -6,6 +6,7 @@ $(window).scroll(function()
     var arcade = document.getElementById("arcade");
     var titleHeight = $("#title2").position().top;
     var width = window.innerWidth;
+    var maxWidth = Number(arcade.style.maxWidth.slice(0, -2)) * width / 100;
     var scrolling = $(this).scrollTop();
     if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 187)
     {
@@ -17,7 +18,14 @@ $(window).scroll(function()
             var k = 1 // speed of zoom
             if (k * arcadeWidth > 100)
             {
-                arcade.style.width = k * arcadeWidth + "px";
+                if (k * arcadeWidth <= maxWidth)
+                {
+                    arcade.style.width = k * arcadeWidth + "px";
+                }
+                else
+                {
+                    arcade.style.width = maxWidth + "vw";
+                }
             }
         }
     }
@@ -56,12 +64,14 @@ $(window).scroll(function()
                             $("#text4").css("visibility", "visible")
                             $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase fourth about me opacity
                             if (scrolling >= 8 * width + m)
-                            {   
-                                $("#text4").css("opacity", `${100 - (0.1 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
-                                $("#arcade").css("opacity", `${100 - (0.1 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
-                                if (scrolling >= 9 * width + m)
+                            {
+                                $("#arcade").css("max-width", "1000vw");
+                                $("#text4").css("visibility", "hidden");
+                                arcade.src = "media/arcade2.png";
+                                arcade.style.width = maxWidth + 0.05 * (scrolling - 8 * width - m) + "px";
+                                $("#arcade").css("opacity", `${100 - (0.05 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
+                                if (scrolling >= 10 * width + m)
                                 {
-                                    $("#text4").css("visibility", "hidden");
                                     $("#arcade").css("visibility", "hidden");
                                 }
                                 else
@@ -116,12 +126,12 @@ function screen_size()
         {
             if (screen.width <= 415 && window.innerWidth < window.innerHeight)
             {
-                $("#arcade").css("max-width", "65vw");
-                $("#scrollbox").css("width", "48vw");
-                $("#scrollbox").css("height", "27vw");
-                $("#scrollbox").css("left", "25%");
-                $("#scrollbox").css("margin-top", "12vw");
-                $(".aboutme").css("font-size", "2.45vw");
+                $("#arcade").css("max-width", "100vw");
+                $("#scrollbox").css("width", "74vw");
+                $("#scrollbox").css("height", "40vw");
+                $("#scrollbox").css("left", "12%");
+                $("#scrollbox").css("margin-top", "73vw");
+                $(".aboutme").css("font-size", "3.7vw");
                 $(".aboutme").css("margin-top", "1vw");
                 $("#arcade").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2}px`);
                 $("#scrollbox").css("top", `${(window.innerHeight - arcade.offsetHeight) / 2 + 190}px`);
@@ -173,7 +183,7 @@ function screen_size()
         $(".menutext").css("font-size", "3.7vw");
         $(".menutext").css("margin-top", "1vw");
         $("#home").css("margin-top", "100px");
-        $("#arcade").css("top", "-1px");        
+        $("#arcade").css("top", "-1px");  
     }
 }
 

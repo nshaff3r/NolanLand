@@ -36,7 +36,7 @@ a
 
 #construction
 {
-    margin-top: 11500px;
+    margin-top: 50000px;
     text-align: center;
 }
 
@@ -95,15 +95,17 @@ a
 
 #arcade
 {
-    position: sticky;
     left: 0px;
-    top: -1px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10vh;
     width: 100px;
-}   
+}
+
+#arcadeContainer
+{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
 
 
 #scrollbox
@@ -138,7 +140,7 @@ a
 {
     width: 35px;
     height: 5px;
-    background-color: #000;
+    background-color: pink;
     margin: 6px 0;
     transition: 0.4s;
 }
