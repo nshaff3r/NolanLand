@@ -1,4 +1,6 @@
-var m = 350; // scroll buffer
+var m = 100; // scroll buffer
+var maxWidth = 40;
+var boxHeight = 16;
 
 $(window).scroll(function()
 {
@@ -6,7 +8,6 @@ $(window).scroll(function()
     var arcade = document.getElementById("arcade");
     var titleHeight = $("#title2").position().top;
     var width = window.innerWidth;
-    var maxWidth = Number(arcade.style.maxWidth.slice(0, -2)) * width / 100;
     var scrolling = $(this).scrollTop();
     if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 187)
     {
@@ -14,19 +15,17 @@ $(window).scroll(function()
         $("#title2").css("visibility", "visible");
         if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 325)
         {
-            var arcadeWidth = scrolling - (titleHeight - document.getElementById("title1").offsetTop) - 235;
-            var k = 1 // speed of zoom
-            if (k * arcadeWidth > 100)
-            {
-                if (k * arcadeWidth <= maxWidth)
-                {
-                    arcade.style.width = k * arcadeWidth + "px";
-                }
-                else
-                {
-                    arcade.style.width = maxWidth + "vw";
-                }
-            }
+            arcade.style.width = maxWidth + "vw";
+            $("#scrollbox").css("height", `${boxHeight}vw`); // Show about me text
+            $("#text1").css("visibility", "visible");
+            $("#text2").css("visibility", "hidden")
+            $("#text3").css("visibility", "hidden")
+            $("#text4").css("visibility", "hidden")
+        }
+        else
+        {
+            arcade.style.width = 10 + "vw";
+            $("#scrollbox").css("height", 0); // Hide about me text
         }
     }
     else
@@ -35,10 +34,8 @@ $(window).scroll(function()
         $("#title2").css("visibility", "hidden");
     }
     if (scrolling >= width + m)
-    {
-        $("#scrollbox").css("display", "block"); // Show about me text
+    {   
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
-        $("#text1").css("visibility", "visible")
         $("#text1").css("opacity", `${100 - (0.1 * (scrolling - width - m))}%`); // Reduce opacity
         if (scrolling >= 2 * width + m)
         {   
@@ -65,23 +62,18 @@ $(window).scroll(function()
                             $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase fourth about me opacity
                             if (scrolling >= 8 * width + m)
                             {
-                                $("#arcade").css("max-width", "1000vw");
                                 $("#text4").css("visibility", "hidden");
                                 arcade.src = "media/arcade2.png";
-                                arcade.style.width = maxWidth + 0.05 * (scrolling - 8 * width - m) + "px";
-                                $("#arcade").css("opacity", `${100 - (0.05 * (scrolling - 8 * width - m))}%`); // Reduce text four opacity
-                                if (scrolling >= 10 * width + m)
+                                arcade.style.width = "100px"
+                                $("#scrollbox").css("height", 0); // Hide about me text
+                                if (scrolling >= 8.5 * width + m)
                                 {
-                                    $("#arcade").css("visibility", "hidden");
+                                    $("#arcadeContainer").css("transform", "translate(0, 40%)");
                                 }
                                 else
                                 {
-                                    $("#arcade").css("visibility", "visible");
+                                    $("#arcadeContainer").css("transform", "translate(0, 0)");
                                 }
-                            }
-                            else
-                            {
-                                $("#arcade").css("opacity", 1);
                             }
                         }
                         else
@@ -126,13 +118,10 @@ function screen_size()
         {
             if (screen.width <= 415 && window.innerWidth < window.innerHeight)
             {
-                $("#arcade").css("max-width", "100vw");
                 $("#scrollbox").css("width", "74vw");
-                $("#scrollbox").css("height", "40vw");
                 $("#scrollbox").css("left", "12%");
-                $("#scrollbox").css("margin-top", "49vw");
+                $("#scrollbox").css("margin-top", "50vw");
                 $(".aboutme").css("font-size", "3.7vw");
-                $(".aboutme").css("margin-top", "1vw");
                 document.getElementById("coaster").src = "media/mobileCoaster.png";
                 $("#coaster").css("transform", "translate(0, -230px)");
                 $("#title1").css("margin-top", "550px");
@@ -140,20 +129,17 @@ function screen_size()
                 document.getElementById("title2").classList.add("mobile");
                 $("#subheading").css("margin-top", "700px");
                 $("#subheading").css("left", "40%");
-                m = 1800;
+                m = 1500;
+                maxWidth = 100;
+                boxHeight = 40;
             }
             else
             {
-                $("#arcade").css("max-width", "40vw");
                 $("#arcade").css("backround-color", "white");
-                $("#arcade").css("top", "-1px");
                 $(".aboutme").css("font-size", "1.5vw");
-                $(".aboutme").css("margin-top", 0);
                 $("#scrollbox").css("width", "30vw");
-                $("#scrollbox").css("height", "16vw");  
                 $("#scrollbox").css("left", "34.5%");
-                $("#scrollbox").css("margin-top", 0);
-                $("#scrollbox").css("top", "20vw");
+                $("#scrollbox").css("margin-top", "20vw");
                 document.getElementById("coaster").src = "media/coaster.png";
                 $("#coaster").css("transform", "translate(0, 0)");
                 $("#title1").css("margin-top", "100px");
@@ -161,28 +147,29 @@ function screen_size()
                 document.getElementById("title2").classList.remove("mobile");
                 $("#subheading").css("margin-top", "150px");
                 $("#subheading").css("left", "50%");
-                m = 350;
+                maxWidth = 40;
+                boxHeight = 16;
             }
         }
         else
         {
-            $("#arcade").css("max-width", "40vw");
-            $("#arcade").css("top", "-1px");
-            $("#scrollbox").css("top", "20vw");
+            $("#scrollbox").css("margin-top", "20vw");
+            maxWidth = 40;
+            boxHeight = 16;
         }
     }
     else
     {
-        $("#arcade").css("max-width", "40vw");
-        $("#scrollbox").css("top", "20vw");
+        $("#scrollbox").css("margin-top", "20vw");
         $("#navigation").css("visibility", "visible");
         $("#coaster").css("top", "0px");
         $("#sidebar").css("width", "25vw");
         $(".menutext").css("font-size", "3.7vw");
         $(".menutext").css("margin-top", "1vw");
         $("#home").css("margin-top", "100px");
-        $("#arcade").css("top", "-1px");  
+        boxHeight = 16;
     }
+    $("#construction").css("margin-top", `${8.5 * window.innerWidth + m}px`);
 }
 
 document.addEventListener("DOMContentLoaded", function()

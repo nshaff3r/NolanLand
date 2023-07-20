@@ -36,7 +36,7 @@ a
 
 #construction
 {
-    margin-top: 50000px;
+    margin-top: 1000vw;
     text-align: center;
 }
 
@@ -96,13 +96,16 @@ a
 #arcade
 {
     left: 0px;
-    width: 100px;
+    width: 10vw;
+    min-width: 10vw;
+    transition: 2s;
 }
 
 #arcadeContainer
 {
     position: sticky;
     top: 0;
+    transition: 2s;
     display: flex;
     justify-content: center;
 }
@@ -114,10 +117,11 @@ a
     left: 34.5%;
     top: 0;
     width: 30vw;
-    height: 16vw;
+    height: 0;
     z-index: 2;
     overflow: hidden;
-    display: none;
+    transition: 0s;
+    transition-delay: 1.9s;
 }
 
 #coaster
@@ -126,7 +130,17 @@ a
     width: 100%;
     margin-bottom: 25px;
     z-index: 0;
-    /* transform: translate(0, -400px); */
+}
+
+#resume-coaster
+{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 800vw;
+    width: 80%;
+    justify-content: center;
 }
 
 .mobile
@@ -189,5 +203,4 @@ color: lightcoral;
     font-family: arcade;
     position: absolute;
     z-index: 4;
-    visibility: hidden;
 }
