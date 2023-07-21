@@ -1,6 +1,7 @@
 var m = 100; // scroll buffer
 var maxWidth = 40;
 var boxHeight = 16;
+var arcadeEnd = 10;
 
 $(window).scroll(function()
 {
@@ -68,7 +69,7 @@ $(window).scroll(function()
                                 $("#scrollbox").css("height", 0); // Hide about me text
                                 if (scrolling >= 8.5 * width + m)
                                 {
-                                    $("#arcadeContainer").css("transform", "translate(0, 40%)");
+                                    $("#arcadeContainer").css("transform", `translate(0, ${arcadeEnd}vw)`);
                                 }
                                 else
                                 {
@@ -122,7 +123,6 @@ function screen_size()
                 $("#scrollbox").css("left", "12%");
                 $("#scrollbox").css("margin-top", "50vw");
                 $(".aboutme").css("font-size", "3.7vw");
-                document.getElementById("coaster").src = "media/mobileCoaster.png";
                 $("#coaster").css("transform", "translate(0, -230px)");
                 $("#title1").css("margin-top", "550px");
                 document.getElementById("title1").classList.add("mobile");
@@ -132,6 +132,7 @@ function screen_size()
                 m = 1500;
                 maxWidth = 100;
                 boxHeight = 40;
+                arcadeEnd = 150;
             }
             else
             {
@@ -149,6 +150,7 @@ function screen_size()
                 $("#subheading").css("left", "50%");
                 maxWidth = 40;
                 boxHeight = 16;
+                arcadeEnd = 10;
             }
         }
         else
@@ -156,6 +158,7 @@ function screen_size()
             $("#scrollbox").css("margin-top", "20vw");
             maxWidth = 40;
             boxHeight = 16;
+            arcadeEnd = 10;
         }
     }
     else
@@ -168,6 +171,7 @@ function screen_size()
         $(".menutext").css("margin-top", "1vw");
         $("#home").css("margin-top", "100px");
         boxHeight = 16;
+        arcadeEnd = 10;
     }
     $("#construction").css("margin-top", `${8.5 * window.innerWidth + m}px`);
 }
