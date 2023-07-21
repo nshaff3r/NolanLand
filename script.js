@@ -123,6 +123,7 @@ function screen_size()
                 $("#scrollbox").css("left", "12%");
                 $("#scrollbox").css("margin-top", "50vw");
                 $(".aboutme").css("font-size", "3.7vw");
+                document.getElementById("coaster").src = "media/mobileCoaster.png";
                 $("#coaster").css("transform", "translate(0, -230px)");
                 $("#title1").css("margin-top", "550px");
                 document.getElementById("title1").classList.add("mobile");

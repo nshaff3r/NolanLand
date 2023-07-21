@@ -3,14 +3,6 @@
     src: url(arcade.ttf);
   }
 
-@media only screen and (max-width: 700px) {
-    #coaster
-    {
-        content: "media/mobileCoaster.png";
-    }
-
-}
-
 body
 {
     background-image: url("media/image.jpeg");
