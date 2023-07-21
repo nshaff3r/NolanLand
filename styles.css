@@ -1,7 +1,14 @@
 @font-face {
     font-family: arcade;
     src: url(arcade.ttf);
-  }
+}
+
+@media only screen and (min-width: 1024px) {
+    #coaster
+    {
+        content: url("media/coaster.png");
+    }
+}
 
 body
 {
@@ -119,7 +126,7 @@ a
     position: fixed;
     left: 34.5%;
     top: 0;
-    width: 30vw;
+    width: 75vw;
     height: 0;
     z-index: 2;
     overflow: hidden;
@@ -211,4 +218,5 @@ color: lightcoral;
 {
     padding-top: 3vw;
     float: left right;
+    bottom: 0;
 }
