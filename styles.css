@@ -44,10 +44,6 @@ a
 #construction
 {
     margin-top: 1000vw;
-    height: 14vw;
-    width: 100%;
-    bottom: 0;
-    background-color: black;
 }
 
 #title1
@@ -216,7 +212,9 @@ color: lightcoral;
 
 .bottom-menu
 {
-    padding-top: 3vw;
+    padding-top: 2vw;
     float: left right;
-    bottom: 0;
+    bottom: 0px;
+    height: 10vw;
+    background-color: black;
 }
