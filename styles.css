@@ -102,8 +102,6 @@ a
 #arcade
 {
     left: 0px;
-    width: 10vw;
-    min-width: 10vw;
     transition: 2s;
 }
 
@@ -121,12 +119,12 @@ a
 {
     position: fixed;
     left: 34.5%;
-    top: 0;
-    width: 75vw;
+    top: 20vw;
+    width: 30vw;
     height: 0;
     z-index: 2;
     overflow: hidden;
-    transition: 0s;
+    transition: height 0s;
     transition-delay: 1.9s;
 }
 
