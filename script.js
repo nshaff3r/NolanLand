@@ -1,9 +1,9 @@
-var m = 0; // scroll buffer
+var m = 1500; // scroll buffer
 var checkpoints = 4;
 var arcadeMaxHeight = 260;
 var arcadeMinHeight = 50;
-var boxHeight = 16;
-var arcadeEnd = 10;
+var boxHeight = 40;
+var arcadeEnd = 50;
 
 $(window).scroll(scrolling);
 
@@ -40,6 +40,7 @@ function scrolling()
         arcade.style.transition = "0s"; // Turn off width transition if page resizes
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
         $("#text1").css("visibility", "visible"); // Show first about me text
+        $("#arcadeContainer").css("transform", "translate(0, 0)"); // Make sure spacing is correct
         if (scrolling >= checkpoints * width + m)
         {
             $("#text1").css("opacity", `${100 - (0.1 * (scrolling - checkpoints * width - m))}%`); // Reduce opacity
@@ -77,10 +78,6 @@ function scrolling()
                                 if (scrolling >= (3 * checkpoints + 2.5) * width + m)
                                 {
                                     $("#arcadeContainer").css("transform", `translate(0, ${arcadeEnd}vw)`);
-                                }
-                                else
-                                {
-                                    $("#arcadeContainer").css("transform", "translate(0, 0)");
                                 }
                             }
                         }
@@ -123,6 +120,11 @@ function screen_size()
         $("#sidebar").css("width", "100%");
         $(".menutext").css("font-size", "400%");
         $(".menutext").css("margin-top", "3vw");
+        // Change page height
+        $("#construction").css("margin-top", "15000px");
+        // Change arcade min size and scrolling length
+        arcadeMinHeight = 50;
+        checkpoints = 4;
         if (screen.width <= 415 && window.innerWidth < window.innerHeight)
         {
             // Change scrollbox and text size
@@ -139,14 +141,10 @@ function screen_size()
             document.getElementById("title2").classList.add("mobile");
             $("#subheading").css("margin-top", "700px");
             $("#subheading").css("left", "40%");
-            // Change page height
-            $("#construction").css("margin-top", "15000px");
-            // Change buffer values
+            // Change buffer value and arcade size
             m = 1500;
-            checkpoints = 4;
             arcadeEnd = 50;
             arcadeMaxHeight = 260;
-            arcadeMinHeight = 50;
             boxHeight = 40;
         }
         else
@@ -165,9 +163,9 @@ function screen_size()
             document.getElementById("title2").classList.remove("mobile");
             $("#subheading").css("margin-top", "225px");
             $("#subheading").css("left", "50%");
-            // Change page height
-            $("#construction").css("margin-top", "15000px");
             // Change buffer value and arcade size
+            m = 0;
+            arcadeEnd = 10;
             arcadeMaxHeight = 145;
             boxHeight = 25;
         }
@@ -185,12 +183,18 @@ function screen_size()
         $("#scrollbox").css("left", "34vw");
         $("#scrollbox").css("margin-top", "1vw");
         $(".aboutme").css("font-size", "1.55vw");
+        // Reposition text and coaster image
+        document.getElementById("coaster").src = "media/coaster.png";
+        $("#title1").css("margin-top", "100px");
+        document.getElementById("title1").classList.remove("mobile");
+        document.getElementById("title2").classList.remove("mobile");
+        $("#subheading").css("margin-top", "225px");
+        $("#subheading").css("left", "50%");
         // Change page height
-        $("#construction").css("margin-top", "12000px");
-        // Change arcade size
+        $("#construction").css("margin-top", "13000px");
+        // Change arcade size and scroll length
         arcadeMaxHeight = 110;
         arcadeMinHeight = 20;
-        arcade
         boxHeight = 20;
         arcadeEnd = 10;
         checkpoints = 2;
@@ -206,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function()
 {
     screen_size();
     scrolling();
+    $("#title1").css("visibility", "visible");
     var menu = document.getElementById("menubutton");
     menu.addEventListener("click", function()
     {

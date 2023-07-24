@@ -3,13 +3,6 @@
     src: url(arcade.ttf);
 }
 
-@media only screen and (min-width: 1000px) {
-    #coaster
-    {
-        content: url("media/coaster.png");
-    }
-}
-
 body
 {
     background-image: url("media/image.jpeg");
@@ -215,6 +208,7 @@ color: lightcoral;
     padding-top: 2vw;
     float: left right;
     bottom: 0px;
-    height: 10vw;
+    height: 11vw;
+    width: 100%;
     background-color: black;
 }
