@@ -3,7 +3,7 @@
     src: url(arcade.ttf);
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 400px) {
     #coaster
     {
         content: url("media/coaster.png");
@@ -109,7 +109,6 @@ a
 {
     position: sticky;
     top: 0;
-    transition: 2s;
     display: flex;
     justify-content: center;
 }
@@ -196,6 +195,7 @@ color: lightcoral;
     font-family: arcade;
     position: absolute;
     z-index: 4;
+    visibility: hidden;
 }
 
 .bottom-text

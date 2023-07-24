@@ -1,4 +1,4 @@
-var m = 100; // scroll buffer
+var m = 0; // scroll buffer
 var arcadeMaxHeight = 260;
 var arcadeMinHeight = 50;
 var boxHeight = 16;
@@ -16,6 +16,16 @@ function scrolling()
     {
         $("#title1").css("visibility", "hidden");
         $("#title2").css("visibility", "visible");
+        if (scrolling >= titleHeight - document.getElementById("title1").offsetTop + 387)
+        {
+            arcade.style.height = arcadeMaxHeight + "vw";
+            $("#scrollbox").css("height", `${boxHeight}vw`); // Show about me text
+        }
+        else
+        {
+            arcade.style.height = arcadeMinHeight + "vw";
+            $("#scrollbox").css("height", "0px"); // Hide about me text
+        }
     }
     else
     {
@@ -25,49 +35,47 @@ function scrolling()
         $("#scrollbox").css("height", "0px"); // Hide about me text
     }
     if (scrolling >= width + m)
-    {   
+    {
+        arcade.style.transition = "0s"; // Turn off width transition if page resizes
+        document.getElementById("scrollbox").style.transitionDelay = "0s"; // Turn off scrollbox delay
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
-        arcade.style.height = arcadeMaxHeight + "vw";
-        $("#scrollbox").css("height", `${boxHeight}vw`); // Show about me text
-        $("#text1").css("visibility", "visible");
-        $("#text2").css("visibility", "hidden")
-        $("#text3").css("visibility", "hidden")
-        $("#text4").css("visibility", "hidden")
-        $("#text1").css("opacity", `${100 - (0.1 * (scrolling - width - m))}%`); // Reduce opacity
-        if (scrolling >= 2 * width + m)
+        $("#text1").css("visibility", "visible"); // Show first about me text
+        if (scrolling >= 3 * width + m)
+        {
+            $("#text1").css("opacity", `${100 - (0.1 * (scrolling - 3 * width - m))}%`); // Reduce opacity
+        }
+        if (scrolling >= 4 * width + m)
         {   
-            arcade.style.transition = "0s";
-            document.getElementById("scrollbox").style.transitionDelay = "0s";
             $("#text1").css("visibility", "hidden");
             $("#text2").css("visibility", "visible")
-            $("#text2").css("opacity", `${0.1 * (scrolling - 2 * width - m)}%`); // Increase second about me opacity
+            $("#text2").css("opacity", `${0.1 * (scrolling - 4 * width - m)}%`); // Increase second about me opacity
             
-            if (scrolling >= 4 * width + m)
+            if (scrolling >= 6 * width + m)
             {   
-                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 4 * width - m))}%`); // Reduce text two opacity
-                if (scrolling >= 5 * width + m)
+                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 6 * width - m))}%`); // Reduce second opacity
+                if (scrolling >= 7 * width + m)
                 {
                     $("#text2").css("visibility", "hidden");
                     $("#text3").css("visibility", "visible")
-                    $("#text3").css("opacity", `${0.1 * (scrolling - 5 * width - m)}%`); // Increase third about me opacity
+                    $("#text3").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase third about me opacity
                     
-                    if (scrolling >= 6 * width + m)
+                    if (scrolling >= 9 * width + m)
                     {
-                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 6 * width - m))}%`); // Reduce text three opacity
-                        if (scrolling >= 7 * width + m)
+                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 9 * width - m))}%`); // Reduce text three opacity
+                        if (scrolling >= 10 * width + m)
                         {
                             arcade.style.transition = "2s";
                             document.getElementById("scrollbox").style.transitionDelay = "1.9s";
                             $("#text3").css("visibility", "hidden");
                             $("#text4").css("visibility", "visible")
-                            $("#text4").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase fourth about me opacity
-                            if (scrolling >= 8 * width + m)
+                            $("#text4").css("opacity", `${0.1 * (scrolling - 10 * width - m)}%`); // Increase fourth about me opacity
+                            if (scrolling >= 11 * width + m)
                             {
                                 $("#text4").css("visibility", "hidden");
                                 arcade.src = "media/arcade2.png";
                                 arcade.style.height = arcadeMinHeight + "vw";
                                 $("#scrollbox").css("height", 0); // Hide about me text
-                                if (scrolling >= 8.5 * width + m)
+                                if (scrolling >= 11.5 * width + m)
                                 {
                                     $("#arcadeContainer").css("transform", `translate(0, ${arcadeEnd}vw)`);
                                 }
@@ -92,14 +100,15 @@ function scrolling()
         else
         {
             $("#text2").css("visibility", "hidden")
-            arcade.style.transition = "2s";
-            document.getElementById("scrollbox").style.transitionDelay = "1.9s";
+            
+            
         }
     }
     else
     {
+        arcade.style.transition = "2s"; // Turn on width transition
+        document.getElementById("scrollbox").style.transitionDelay = "1.9s"; // Turn on scrollbox transition
         document.getElementById("arcade").src = "media/arcade1.png";
-        arcade.style.height = arcadeMinHeight + "vw";
         $("#scrollbox").css("height", "0px"); // Hide about me text
         $("#text1").css("visibility", "hidden")
     }
@@ -112,7 +121,7 @@ function screen_size()
 {
     var arcade = document.getElementById("arcade");
     // Change page height
-    $("#construction").css("margin-top", `${9 * window.innerWidth + m}px`);
+    $("#construction").css("margin-top", `${12 * window.innerWidth + m}px`);
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         // Change top navigation and menu sizes
@@ -185,7 +194,7 @@ function screen_size()
         boxHeight = 20;
         arcadeEnd = 10;
     }
-    if ($(this).scrollTop() >= window.innerWidth + m)
+    if ($(this).scrollTop() >= window.innerWidth)
     {
         arcade.style.height = arcadeMaxHeight + "vw";
     }
