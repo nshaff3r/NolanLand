@@ -110,7 +110,9 @@ a
     position: sticky;
     top: 0;
     display: flex;
+    transition: 2s;
     justify-content: center;
+    z-index: 1;
 }
 
 

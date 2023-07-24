@@ -1,4 +1,5 @@
 var m = 0; // scroll buffer
+var checkpoints = 4;
 var arcadeMaxHeight = 260;
 var arcadeMinHeight = 50;
 var boxHeight = 16;
@@ -34,48 +35,46 @@ function scrolling()
         arcade.style.height = arcadeMinHeight + "vw";
         $("#scrollbox").css("height", "0px"); // Hide about me text
     }
-    if (scrolling >= width + m)
+    if (scrolling >= checkpoints * width + m)
     {
         arcade.style.transition = "0s"; // Turn off width transition if page resizes
-        document.getElementById("scrollbox").style.transitionDelay = "0s"; // Turn off scrollbox delay
         document.getElementById("arcade").src = "media/arcade.png"; // Switch to blank arcade
         $("#text1").css("visibility", "visible"); // Show first about me text
-        if (scrolling >= 3 * width + m)
+        if (scrolling >= checkpoints * width + m)
         {
-            $("#text1").css("opacity", `${100 - (0.1 * (scrolling - 3 * width - m))}%`); // Reduce opacity
+            $("#text1").css("opacity", `${100 - (0.1 * (scrolling - checkpoints * width - m))}%`); // Reduce opacity
         }
-        if (scrolling >= 4 * width + m)
+        if (scrolling >= (checkpoints + 1) * width + m)
         {   
             $("#text1").css("visibility", "hidden");
             $("#text2").css("visibility", "visible")
-            $("#text2").css("opacity", `${0.1 * (scrolling - 4 * width - m)}%`); // Increase second about me opacity
+            $("#text2").css("opacity", `${0.1 * (scrolling - (checkpoints + 1) * width - m)}%`); // Increase second about me opacity
             
-            if (scrolling >= 6 * width + m)
+            if (scrolling >= 2 * checkpoints * width + m)
             {   
-                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - 6 * width - m))}%`); // Reduce second opacity
-                if (scrolling >= 7 * width + m)
+                $("#text2").css("opacity", `${100 - (0.1 * (scrolling - (2 * checkpoints) * width - m))}%`); // Reduce second opacity
+                if (scrolling >= (2 * checkpoints + 1) * width + m)
                 {
                     $("#text2").css("visibility", "hidden");
                     $("#text3").css("visibility", "visible")
-                    $("#text3").css("opacity", `${0.1 * (scrolling - 7 * width - m)}%`); // Increase third about me opacity
+                    $("#text3").css("opacity", `${0.1 * (scrolling - (2 * checkpoints + 1) * width - m)}%`); // Increase third about me opacity
                     
-                    if (scrolling >= 9 * width + m)
+                    if (scrolling >= (3 * checkpoints) * width + m)
                     {
-                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - 9 * width - m))}%`); // Reduce text three opacity
-                        if (scrolling >= 10 * width + m)
+                        $("#text3").css("opacity", `${100 - (0.1 * (scrolling - (3 * checkpoints) * width - m))}%`); // Reduce text three opacity
+                        if (scrolling >= (3 * checkpoints + 1) * width + m)
                         {
                             arcade.style.transition = "2s";
-                            document.getElementById("scrollbox").style.transitionDelay = "1.9s";
                             $("#text3").css("visibility", "hidden");
                             $("#text4").css("visibility", "visible")
-                            $("#text4").css("opacity", `${0.1 * (scrolling - 10 * width - m)}%`); // Increase fourth about me opacity
-                            if (scrolling >= 11 * width + m)
+                            $("#text4").css("opacity", `${0.1 * (scrolling - (3 * checkpoints + 1) * width - m)}%`); // Increase fourth about me opacity
+                            if (scrolling >= (3 * checkpoints + 2) * width + m)
                             {
                                 $("#text4").css("visibility", "hidden");
                                 arcade.src = "media/arcade2.png";
                                 arcade.style.height = arcadeMinHeight + "vw";
                                 $("#scrollbox").css("height", 0); // Hide about me text
-                                if (scrolling >= 11.5 * width + m)
+                                if (scrolling >= (3 * checkpoints + 2.5) * width + m)
                                 {
                                     $("#arcadeContainer").css("transform", `translate(0, ${arcadeEnd}vw)`);
                                 }
@@ -100,16 +99,12 @@ function scrolling()
         else
         {
             $("#text2").css("visibility", "hidden")
-            
-            
         }
     }
     else
     {
         arcade.style.transition = "2s"; // Turn on width transition
-        document.getElementById("scrollbox").style.transitionDelay = "1.9s"; // Turn on scrollbox transition
         document.getElementById("arcade").src = "media/arcade1.png";
-        $("#scrollbox").css("height", "0px"); // Hide about me text
         $("#text1").css("visibility", "hidden")
     }
 }
@@ -120,8 +115,6 @@ $(window).resize(screen_size);
 function screen_size()
 {
     var arcade = document.getElementById("arcade");
-    // Change page height
-    $("#construction").css("margin-top", `${12 * window.innerWidth + m}px`);
     if (window.innerWidth <= 1050 || screen.width <= 1050)
     {
         // Change top navigation and menu sizes
@@ -146,8 +139,12 @@ function screen_size()
             document.getElementById("title2").classList.add("mobile");
             $("#subheading").css("margin-top", "700px");
             $("#subheading").css("left", "40%");
+            // Change page height
+            $("#construction").css("margin-top", "15000px");
             // Change buffer values
             m = 1500;
+            checkpoints = 4;
+            arcadeEnd = 50;
             arcadeMaxHeight = 260;
             arcadeMinHeight = 50;
             boxHeight = 40;
@@ -168,8 +165,9 @@ function screen_size()
             document.getElementById("title2").classList.remove("mobile");
             $("#subheading").css("margin-top", "225px");
             $("#subheading").css("left", "50%");
+            // Change page height
+            $("#construction").css("margin-top", "15000px");
             // Change buffer value and arcade size
-            m = 100;
             arcadeMaxHeight = 145;
             boxHeight = 25;
         }
@@ -187,12 +185,15 @@ function screen_size()
         $("#scrollbox").css("left", "34vw");
         $("#scrollbox").css("margin-top", "1vw");
         $(".aboutme").css("font-size", "1.55vw");
+        // Change page height
+        $("#construction").css("margin-top", "12000px");
         // Change arcade size
         arcadeMaxHeight = 110;
         arcadeMinHeight = 20;
         arcade
         boxHeight = 20;
         arcadeEnd = 10;
+        checkpoints = 2;
     }
     if ($(this).scrollTop() >= window.innerWidth)
     {
