@@ -1,4 +1,4 @@
-var m = 1500; // scroll buffer
+var m = 0; // scroll buffer
 var checkpoints = 4;
 var arcadeMaxHeight = 260;
 var arcadeMinHeight = 50;
@@ -130,7 +130,7 @@ function screen_size()
             // Change scrollbox and text size
             $("#scrollbox").css("width", "74vw");
             $("#scrollbox").css("left", "12vw");
-            $("#scrollbox").css("margin-top", "28vw");
+            $("#scrollbox").css("margin-top", "29vw");
             $(".aboutme").css("font-size", "3.7vw");
             // Change and position coaster image
             document.getElementById("coaster").src = "media/mobileCoaster.png";
@@ -142,7 +142,7 @@ function screen_size()
             $("#subheading").css("margin-top", "700px");
             $("#subheading").css("left", "40%");
             // Change buffer value and arcade size
-            m = 1500;
+            m = 0;
             arcadeEnd = 50;
             arcadeMaxHeight = 260;
             boxHeight = 40;
@@ -151,7 +151,7 @@ function screen_size()
         {
             // Revert scrollbox and text size
             $("#scrollbox").css("width", "42vw");
-            $("#scrollbox").css("left", "28.5vw");
+            $("#scrollbox").css("left", "27.8vw");
             $("#scrollbox").css("margin-top", "7.5vw");
             $(".aboutme").css("font-size", "2.1vw");
             // Change and reposition coaster image
@@ -180,7 +180,7 @@ function screen_size()
         $(".menutext").css("margin-top", "1vw");
         // Change scrollbox and text size
         $("#scrollbox").css("width", "31vw");
-        $("#scrollbox").css("left", "34vw");
+        $("#scrollbox").css("left", "33.5vw");
         $("#scrollbox").css("margin-top", "1vw");
         $(".aboutme").css("font-size", "1.55vw");
         // Reposition text and coaster image
