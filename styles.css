@@ -3,7 +3,7 @@
     src: url(arcade.ttf);
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 1000px) {
     #coaster
     {
         content: url("media/coaster.png");
