@@ -3,11 +3,19 @@
     src: url(arcade.ttf);
 }
 
-body
+.home-page
 {
     background-image: url("media/image.jpeg");
     background-repeat: repeat-y;
     background-size: contain;
+    overflow-y: visible;
+}
+
+.other
+{
+    background-image: url("media/image.jpeg");
+    background-repeat: repeat-y;
+    background-size: cover;
     overflow-y: visible;
 }
 
@@ -127,8 +135,86 @@ a
     position: relative;
     width: 100%;
     margin-bottom: 25px;
-    z-index: 0;
 }
+
+#resume-coaster
+{
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    bottom: 0;
+    height: 90vh;
+    overflow: hidden;
+}
+#resume
+{
+    offset-path: path("M51.23,450.9l73.28-82.68h0c107.4-61.94,162.68-138.64,175.38-220.48,3.81-57.98-18.17-102.56-70.15-131.53C165.08-10.75,102.5-3.92,42.47,43.77c-55.74,64.2-56.17,137.21,0,219.22,26.35,40.13,69.34,74.87,125.9,105.23l95.21,95.83");
+    /* animation:  move 4s; */
+    transform: rotate(14deg);
+    position: absolute;
+    width: 8%;
+    /* margin-left: 31.5vw; */
+    margin-top: 6vw;
+    z-index: 2;
+}
+
+#resume-button
+{
+    z-index: 3;
+    position: absolute;
+    top: 12.4vw;
+    left: 38.7vw;
+    fill: #F9D840;
+    width: 22.6%;
+}
+
+#roller
+{
+    position: absolute;
+    display: block;
+    top: 8vw;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+#download
+{
+    top: 20vw;
+    left: 30vw;
+    font-size: 3vw;
+    text-align: center;
+}
+
+#download-div
+{
+    z-index: 3;
+    position: absolute;
+    width: 29vw;
+    height: 5vw;
+    margin-top: 20vw;
+    margin-left: 35vw;
+}
+
+#center-download
+{
+    margin: auto;
+    width: 15vw;
+}
+
+#resume-button:hover
+{
+   fill: lightcoral;
+}
+
+@keyframes move {
+    100% {
+    offset-distance: 100%;
+    offset-rotate: -14deg;
+    }
+  }
 
 .mobile
 {
@@ -163,9 +249,9 @@ a
 .menutext
 {
     font-size: 3.7vw;
+    margin-left: 2vw;
     color: #fff;
-    margin-left: 2.3vw;
-    margin-top: 1vw;
+    padding: 1vw;
 }
 
 .nav-link:hover
