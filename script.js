@@ -205,7 +205,6 @@ function screen_size()
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", function()
 {
     screen_size();
@@ -223,5 +222,5 @@ document.addEventListener("DOMContentLoaded", function()
         {
             $("body").css("overflow-y", "visible");
         }
-    })
+    });
 });
