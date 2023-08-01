@@ -13,8 +13,7 @@
 
 .other
 {
-    /* background-image: url("media/image.jpeg"); */
-    background-color: #00ff00; 
+    background-color: #5796d9; 
     background-repeat: repeat-y;
     background-size: cover;
     overflow-y: visible;
@@ -141,73 +140,45 @@ a
 #resume-coaster
 {
     position: absolute;
-    left: 0;
-    width: 100vw;
-    bottom: 0;
-    height: 90vh;
-    overflow: hidden;
-}
-#resume
-{
-    position: absolute;
-    offset-path: path("M51.43,397.24c17.28-4.23,36.86-11.27,74.45-27.96,75.43-43.96,133.56-99.21,161.6-174.13,20.67-54.8,18.94-104.97-18.16-147.82C225.01,3.1,169.27-13.63,95.82,12.26,28.46,45.51-11.86,96.71,3.12,184.64c19.23,46.59,39.18,92.67,80.17,123.88,77.95,69.2,175.35,106.18,290.91,113.07");
-    transform: rotate(-15deg);
-    animation: move 3.5s;
-    width: 10%;
-    left: 36.3vw;
-    top: 13.5vw;
-    z-index: 6;
-}
-
-#roller
-{
-    position: absolute;
+    width: 80%;
     display: block;
-    top: 7.6vw;
-    width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 4vw;
     left: 0;
     right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #resume-button
 {
-    z-index: 3;
     position: absolute;
-    top: 12vw;
-    left: 38.7vw;
-    fill: lightcoral;
-    width: 22.6%;
+    z-index: 4;
+    display: block;
+    left: .3vw;
+    right: 0;
+    margin-top: 8.59vw;
+    margin-left: auto;
+    margin-right: auto;
+    fill: #F9D840;
+    width: 24.5%;
 }
 
 #download
 {
-    top: 20vw;
-    left: 30vw;
-    font-size: 3vw;
-    text-align: center;
-}
-
-#download-div
-{
-    z-index: 3;
+    display: block;
     position: absolute;
-    width: 29vw;
-    height: 5vw;
-    margin-top: 20vw;
-    margin-left: 35vw;
-}
-
-#center-download
-{
-    margin: auto;
-    width: 15vw;
+    left: 0;
+    right: 0;
+    margin-top: 16.8%;
+    margin-left: -.6vw;
+    font-size: 3.3vw;
+    text-align: center;
+    z-index: 10;
 }
 
 #resume-button:hover
 {
-   fill: lightcoral;
+   fill: none;
 }
 
 @keyframes move {
