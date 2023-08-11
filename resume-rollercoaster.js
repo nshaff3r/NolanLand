@@ -5,14 +5,21 @@ function resume()
 {
     resumeButton.style.visibility = "hidden";
     resumeText.style.visibility = "hidden";
-    var vid = document.getElementById("resume-coaster");
-    vid.play();
-    vid.onended = function() {
+    var animation = document.getElementById("resume-coaster");
+    animation.src = "media/resume-rollercoaster.gif";
+    setTimeout(function(){
         window.open("media/resume.pdf", '_blank').focus();
+        animation.src = "media/resume-rollercoaster.jpg";
         resumeButton.style.visibility = "visible";
         resumeText.style.visibility = "visible";
-        vid.currentTime = 0;
-    };
+    }, 3500);
+    // vid.play();
+    // vid.onended = function() {
+    //     window.open("media/resume.pdf", '_blank').focus();
+    //     resumeButton.style.visibility = "visible";
+    //     resumeText.style.visibility = "visible";
+    //     vid.currentTime = 0;
+    // };
     // document.getElementById("resume-button").style.visibility = "visible";
 }
 
